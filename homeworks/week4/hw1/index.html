@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>計算機</title>
+    <style type="text/css">
+        body{
+            margin-top: 100px;
+            display: flex;
+            justify-content: center;
+        }
+        .main{
+            display: flex;
+            flex-direction: column;
+            width: 440px;
+            border: 1px solid #888;
+        }
+        .displayBox{
+            box-sizing: border-box;
+            width: 430px;
+            font-size: 48px;
+            border: 1px solid #888;
+            margin: 5px;
+            padding: 0 5px;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .btnRow{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn{
+            width: 100px;
+            line-height: 35px;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: center;
+            margin: 5px;
+        }
+        .btn:hover{
+            border: 1px solid #333;
+        }
+        .ac{
+            background-color: #ccc;
+        }
+        .ac:hover{
+            border: 1px solid #555;
+        }
+        .equals{
+            
+            background-color: #ff8d00;
+            border: none;
+        }
+        .equals:hover{
+            background-color: #ff5d00;
+        }
+    </style>
+    <script type="text/javascript">
+
+        var displayValue
+        var operatorValue
+
+        document.addEventListener('DOMContentLoaded', function(){
+            //數字顯示
+            // 點擊數字按鈕
+            document.querySelector('.num7').addEventListener('click', () =>{
+                // 讓顯示要變成按鈕的值，先取得顯示內容
+                var number = document.querySelector('.displayBox').innerText;
+                // 按鈕的值，轉數字（顯示的值, 10進位的值）*10（因為是10進位 + 轉數字（點擊選擇區塊的值）
+                number = parseInt(number, 10) *10 + parseInt(document.querySelector('.num7').innerText)
+                // 顯示內放入上述的值
+                document.querySelector('.displayBox').innerText = number
+            })
+            document.querySelector('.num8').addEventListener('click', () =>{
+                var number = document.querySelector('.displayBox').innerText;
+                number = parseInt(number, 10) *10 + parseInt(document.querySelector('.num8').innerText)
+                document.querySelector('.displayBox').innerText = number
+            })
+            document.querySelector('.num9').addEventListener('click', () =>{
+                var number = document.querySelector('.displayBox').innerText;
+                number = parseInt(number, 10) *10 + parseInt(document.querySelector('.num9').innerText)
+                document.querySelector('.displayBox').innerText = number
+            })
+            document.querySelector('.num4').addEventListener('click', () =>{
+                var number = document.querySelector('.displayBox').innerText;
+                number = parseInt(number, 10) *10 + parseInt(document.querySelector('.num4').innerText)
+                document.querySelector('.displayBox').innerText = number
+            })
+            document.querySelector('.num5').addEventListener('click', () =>{
+                var number = document.querySelector('.displayBox').innerText;
+                number = parseInt(number, 10) *10 + parseInt(document.querySelector('.num5').innerText)
+                document.querySelector('.displayBox').innerText = number
+            })
+            document.querySelector('.num6').addEventListener('click', () =>{
+                var number = document.querySelector('.displayBox').innerText;
+                number = parseInt(number, 10) *10 + parseInt(document.querySelector('.num6').innerText)
+                document.querySelector('.displayBox').innerText = number
+            })
+            document.querySelector('.num1').addEventListener('click', () =>{
+                var number = document.querySelector('.displayBox').innerText;
+                number = parseInt(number, 10) *10 + parseInt(document.querySelector('.num1').innerText)
+                document.querySelector('.displayBox').innerText = number
+            })
+            document.querySelector('.num2').addEventListener('click', () =>{
+                var number = document.querySelector('.displayBox').innerText;
+                number = parseInt(number, 10) *10 + parseInt(document.querySelector('.num2').innerText)
+                document.querySelector('.displayBox').innerText = number
+            })
+            document.querySelector('.num3').addEventListener('click', () =>{
+                var number = document.querySelector('.displayBox').innerText;
+                number = parseInt(number, 10) *10 + parseInt(document.querySelector('.num3').innerText)
+                document.querySelector('.displayBox').innerText = number
+            })
+            document.querySelector('.num0').addEventListener('click', () =>{
+                var number = document.querySelector('.displayBox').innerText;
+                number = parseInt(number, 10) *10 + parseInt(document.querySelector('.num0').innerText)
+                document.querySelector('.displayBox').innerText = number
+            })
+
+            // 點擊運算符後儲存運算符再儲存顯示的數字並歸零
+            // getElementsByClassName 針對給定的 class 名稱，回傳「所有」符合條件的 NodeList 物件
+            var operatorGroup = document.getElementsByClassName('operator');
+            for( var i = 0; i < operatorGroup.length; i++){
+                operatorGroup[i].addEventListener('click', function(){
+                    // 儲存運算符的狀態值
+                    operatorValue = this.innerText;
+                    // 儲存第一個數值顯示的值
+                    displayValue = parseInt(document.querySelector('.displayBox').innerText, 10);
+                    // 歸零以方便輸入第二個數值
+                    document.querySelector('.displayBox').innerText = 0;
+                });
+                // 一開始是使用 ()=> 導致這邊 operatorValue = this.innerText; 的 this 是取得 operatorGroup 的值
+                // 後來改為 function 即取得 operatorGroup[i]
+            }
+            // 點擊等於符取得第二個數值並計算
+            document.querySelector('.equals').addEventListener('click', () =>{
+                var second = parseInt(document.querySelector('.displayBox').innerText, 10);
+                if( operatorValue == '+' ){
+                    document.querySelector('.displayBox').innerText = displayValue + second;
+                };
+                if( operatorValue == '-' ){
+                    document.querySelector('.displayBox').innerText = displayValue - second;
+                };
+                if( operatorValue == '*' ){
+                    document.querySelector('.displayBox').innerText = displayValue * second;
+                };
+                if( operatorValue == '÷' ){
+                    document.querySelector('.displayBox').innerText = displayValue / second;
+                };
+            })
+            
+            // clear 清除數值
+            document.querySelector('.ac').addEventListener('click', () =>{
+                document.querySelector('.displayBox').innerText = 0;
+            })
+            
+        })
+    </script>
+</head>
+<body>
+    <div class="main">
+        <div class="displayBox">
+            0
+        </div>
+        <div class="btns">
+            <div class="btnRow">
+                <div class="btn ac">AC</div>
+            </div>
+            <div class="btnRow">
+                <div class="btn num7">7</div>
+                <div class="btn num8">8</div>
+                <div class="btn num9">9</div>
+                <div class="btn operator">÷</div>
+            </div>
+            <div class="btnRow">
+                <div class="btn num4">4</div>
+                <div class="btn num5">5</div>
+                <div class="btn num6">6</div>
+                <div class="btn operator">*</div>
+            </div>
+            <div class="btnRow">
+                <div class="btn num1">1</div>
+                <div class="btn num2">2</div>
+                <div class="btn num3">3</div>
+                <div class="btn operator">-</div>
+            </div>
+            <div class="btnRow">
+                <div class="btn num0">0</div>
+                <div class="btn">.</div>
+                <div class="btn equals">=</div>
+                <div class="btn operator">+</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
