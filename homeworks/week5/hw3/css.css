@@ -1,0 +1,98 @@
+html, body{
+    margin: 0;
+    padding: 0;
+}
+.title{
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+}
+h1{
+    text-align: center;
+}
+.logInOut{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.logInOut > h3 a{
+    margin-left: 15px;
+    color: #666666;
+    text-decoration: none;
+
+}
+.container{
+    width: 500px;
+    margin: 0 auto;
+}
+.mainCom{
+    border: 1px solid #dedede;
+    box-sizing: border-box;
+    padding: 15px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.mainCom > input{
+    align-self: flex-end;
+    margin-top: 5px;
+    color: #FB9966;
+    padding: 3px 5px;
+}
+textarea{
+    box-sizing: border-box;
+    padding: 5px;
+    width: 100%;
+}
+.reList{
+    border: 2px solid #dedede;
+    box-sizing: border-box;
+    padding: 15px;
+    margin: 5px 0;
+}
+.reLogin a{
+    background-color: #dedede;
+    color: #000;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+}
+.reInfo{
+    display: flex;
+    justify-content: space-between;
+}
+.mainNick{
+    color: #FB9966;
+}
+.reInfo > .nick{
+    color: #5DAC81;
+}
+.reInfo > .time{
+    color: #999999;
+}
+.reCom{
+    background-color: #ededed;
+    box-sizing: border-box;
+    margin-top: 20px;
+    padding: 20px;
+    border-bottom: solid 1px #999999;
+}
+.reComList{
+    background-color: #ededed;
+    box-sizing: border-box;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.reComList > input{
+    align-self: flex-end;
+    margin-top: 5px;
+}
+.reComList > .reListText{
+    padding-top: 5px;
+    padding-bottom: 20px;
+}
