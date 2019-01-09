@@ -9,9 +9,10 @@ document.addEventListener('DOMContentLoaded', function(){
     // https://api.twitch.tv/kraken/streams?game=League%20of%20Legends&limit=20&client_id=y845jl7t8ghkmjl9ly8bgfs5sc006i
     
     request.onload = function(){
-        for(var i=0; i<JSON.parse(request.responseText).streams.length; i++){
+        const parse = JSON.parse(request.responseText).streams
+        for(var i=0; i<parse.length; i++){
 		    if(request.status>=200 && request.status<400){
-                const date = JSON.parse(request.responseText).streams[i];
+                const date = parse[i];
                 q('.stream_list').innerHTML += getStream(date);
 			}
         }
